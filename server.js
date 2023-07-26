@@ -1,15 +1,16 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
+const mongoose = require('mongoose')
 const port = 5000;
 
 dotenv.config({
     path: "./.env"
 })
 
-app.get('/', (req, res) => {
-    console.log("this is the home page")
-})
+mongoose.connect(process.env.MONGO_LINK, {
+    
+}).then(() => {console.log("server connected")})
 
 
 app.listen(port, () => {
